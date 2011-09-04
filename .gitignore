@@ -3,6 +3,8 @@
 
 #binの無視
 bin/*
+#
+*.jnilib
 
 #eclipse用ファイルの無視
 .checkstyle
