@@ -2,7 +2,7 @@
 *.class
 
 #binの無視
-bin
+bin/*
 
 #eclipse用ファイルの無視
 .checkstyle
