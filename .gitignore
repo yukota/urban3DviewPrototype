@@ -7,3 +7,6 @@
 .project
 .settings*
 .DS_Store
+#libray
+#processing
+Contents/Resources/*
