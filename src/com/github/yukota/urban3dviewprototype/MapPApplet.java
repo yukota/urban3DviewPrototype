@@ -1,7 +1,6 @@
 package com.github.yukota.urban3dviewprototype;
 
 import processing.core.PApplet;
-import processing.opengl.*;
 
 public class MapPApplet extends PApplet {
     
