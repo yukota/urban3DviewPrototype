@@ -20,16 +20,13 @@ public class MapPApplet extends PApplet {
         lights();
         //中心地に平行移動
         translate(320,240);
-        rotateX(10);
-        
+        rotateY(map(mouseX, 0, width, 0, PI));
+        rotateZ(map(mouseY, 0, height, 0, -PI));
+       
+        //人のモデルの作成
         Agent3D oneAgent = new Agent3D();
         oneAgent.display();
         
-        //人のモデルの作成
-        
-        
-        
-//        box(100);
     }
     
  
@@ -38,10 +35,10 @@ public class Agent3D {
     private float height = 200;
     private float width= height*2/3;
     
-    private float headSize = height/3;
+    private float headSize = height/4;
     private float bodyHeight = height * 2 / 3;
     
-    private float bodyWidht = width ;
+    private float bodyWidth = width ;
     
     private float frontWidth = width/2;
     /**
@@ -61,19 +58,34 @@ public class Agent3D {
        // sphere(headSize);
     //胴体の描写
         fill(0,0,255);
-        beginShape();
+        beginShape(TRIANGLE_FAN);
         
         //frame1
         vertex(0,0,0);
-        vertex(bodyWidht/2, 0, bodyHeight);
+        vertex(bodyWidth/2, 0, bodyHeight);
         vertex(0, -frontWidth, bodyHeight);
-        vertex(-bodyWidht/2, 0, bodyHeight);
+        //frame4
+        vertex(-bodyWidth/2, 0, bodyHeight);
+        //frame5
+        vertex(0, frontWidth, bodyHeight);
         
-        
+        vertex(bodyWidth/2, 0, bodyHeight);
         
         endShape(CLOSE);
         
+        //上面の作成
             
+        beginShape();
+        vertex(bodyWidth/2, 0, bodyHeight);
+        vertex(0, -frontWidth, bodyHeight);
+        vertex(-bodyWidth/2, 0, bodyHeight);
+        vertex(0, frontWidth, bodyHeight);
+        endShape(CLOSE);
+        
+        noStroke();
+        translate(0,0,bodyHeight+headSize);
+        sphere(headSize);
+        
         
         
     
